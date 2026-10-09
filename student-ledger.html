@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Student Ledger demo page for Southeast University website.">
+  <title>Student Ledger | Southeast University</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/script.js" defer></script>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="index.html"><span class="brand-mark">SU</span><span>Southeast University<small>Education Today, Leadership Tomorrow</small></span></a>
+  <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+  <nav class="nav">
+    <a href="index.html">Home</a><a href="about.html">About</a><a href="academics.html">Academics</a><a class="active" href="student-ledger.html">Student Ledger</a><a href="campus-life.html">Campus Life</a><a href="contact.html">Contact</a>
+  </nav>
+  <div class="header-actions"><a class="login-link" href="login.html">Log in</a><a class="button button-small" href="signup.html">Sign up</a></div>
+</header>
+<main class="ledger-page">
+  <section class="ledger-top">
+    <div class="container ledger-top-inner">
+      <div><span class="ledger-kicker">STUDENT PORTAL · DEMO</span><h1>Student Ledger</h1><p>View a sample overview of semester fees and payment records.</p></div>
+      <div class="ledger-avatar" aria-hidden="true">SU</div>
+    </div>
+  </section>
+  <section class="container ledger-container">
+    <div class="ledger-profile">
+      <div class="ledger-person">
+        <div class="profile-avatar">ST</div>
+        <div><span class="demo-label">SAMPLE STUDENT ACCOUNT</span><h2>Student Name</h2><p>Student ID: DEMO-000001</p><p>Bachelor of Business Administration</p><p>Batch: Sample Batch</p></div>
+      </div>
+      <div class="ledger-dates"><div><span>From Date</span><strong>01 January 2026</strong></div><div><span>To Date</span><strong>09 October 2026</strong></div><div><span>Generated</span><strong>09 October 2026</strong></div></div>
+    </div>
+    <div class="ledger-summary">
+      <label class="ledger-semester"><span>Select a semester</span><select id="semester-select"><option value="summer">Summer 2026</option><option value="spring">Spring 2026</option><option value="fall">Fall 2025</option></select></label>
+      <div class="ledger-metric"><span>Outstanding Amount</span><strong id="outstanding">৳ 1,500.00</strong></div>
+      <div class="ledger-metric"><span>Semester Paid</span><strong id="semester-paid">92%</strong></div>
+      <div class="ledger-metric"><span>Total Paid</span><strong id="total-paid">88%</strong></div>
+    </div>
+    <div class="ledger-table-wrap">
+      <table class="ledger-table">
+        <thead><tr><th>Semester</th><th>Paid Date</th><th>Chart of Accounts</th><th>Payment Details</th><th>Debit</th><th>Credit</th></tr></thead>
+        <tbody id="ledger-rows">
+          <tr><td>Summer 2026</td><td>15 Jun 2026</td><td>Tuition Fee</td><td>Sample semester tuition</td><td>৳ 30,000</td><td>৳ 28,500</td></tr>
+          <tr><td>Summer 2026</td><td>20 Jun 2026</td><td>Payment</td><td>Sample payment record</td><td>—</td><td>৳ 28,500</td></tr>
+          <tr><td>Summer 2026</td><td>—</td><td>Balance</td><td>Illustrative balance only</td><td>৳ 1,500</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="ledger-disclaimer"><strong>Demo only:</strong> This page uses fictional sample data for design purposes. It is not connected to SEU's official UMS, student records, or payment system. Do not enter real student or payment information.</p>
+    <div class="ledger-actions"><button class="btn btn-primary" onclick="window.print()">Print this page</button><a class="btn btn-secondary" href="academics.html">Back to Academics</a></div>
+  </section>
+</main>
+<footer class="footer"><a class="brand brand-footer" href="index.html"><span class="brand-mark">SU</span><span>Southeast University<small>Education Today, Leadership Tomorrow</small></span></a><p>Student website demo · Not an official student financial system.</p><div><a href="about.html">About</a><a href="contact.html">Contact</a><a href="login.html">Student login</a></div><small>© <span id="year"></span> Southeast University demo</small></footer>
+<script>
+const demoLedger = {
+  summer: { outstanding: "৳ 1,500.00", semester: "92%", total: "88%", rows: [
+    ["Summer 2026","15 Jun 2026","Tuition Fee","Sample semester tuition","৳ 30,000","৳ 28,500"],
+    ["Summer 2026","20 Jun 2026","Payment","Sample payment record","—","৳ 28,500"],
+    ["Summer 2026","—","Balance","Illustrative balance only","৳ 1,500","—"]
+  ]},
+  spring: { outstanding: "৳ 0.00", semester: "100%", total: "86%", rows: [
+    ["Spring 2026","10 Feb 2026","Tuition Fee","Sample semester tuition","৳ 28,000","৳ 28,000"],
+    ["Spring 2026","15 Feb 2026","Payment","Sample payment record","—","৳ 28,000"],
+    ["Spring 2026","—","Balance","Illustrative balance only","৳ 0","—"]
+  ]},
+  fall: { outstanding: "৳ 2,000.00", semester: "90%", total: "82%", rows: [
+    ["Fall 2025","12 Oct 2025","Tuition Fee","Sample semester tuition","৳ 25,000","৳ 23,000"],
+    ["Fall 2025","18 Oct 2025","Payment","Sample payment record","—","৳ 23,000"],
+    ["Fall 2025","—","Balance","Illustrative balance only","৳ 2,000","—"]
+  ]}
+};
+document.getElementById("semester-select").addEventListener("change", function() {
+  const d = demoLedger[this.value];
+  document.getElementById("outstanding").textContent = d.outstanding;
+  document.getElementById("semester-paid").textContent = d.semester;
+  document.getElementById("total-paid").textContent = d.total;
+  document.getElementById("ledger-rows").innerHTML = d.rows.map(row => "<tr>" + row.map(cell => "<td>" + cell + "</td>").join("") + "</tr>").join("");
+});
+</script>
+</body>
+</html>

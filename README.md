@@ -26,3 +26,13 @@ A responsive, multi-page static website concept built with HTML, CSS, and JavaSc
 
 ## Important security note
 This is a front-end demo, not a production university website. Signup stores passwords in the browser's localStorage as plain text, which is NOT secure. Do not use real or reused passwords. For a real site, replace this demo with a secure backend/auth provider (password hashing, server-side sessions, HTTPS, rate limiting, and account recovery). The contact form does not send email until connected to a form backend/service. Replace all sample program and contact details with verified official information before publishing. Ensure you have permission to use the university name, logo, photos, and other branding.
+
+
+## Professional design update
+The updated stylesheet adds a cleaner university-style palette, improved spacing, responsive cards, a redesigned homepage hero, and mobile-friendly layouts.
+
+## Publishing update
+Upload the *contents* of this folder to the repository's publishing root so that `index.html` is directly visible on the repository's main Code page. Keep the `assets` folder beside `index.html`, then commit the changes. GitHub Pages should be set to `main` and `/(root)`.
+
+## Important security note
+The current login/signup pages are a front-end demo only. Do not use them for real accounts or sensitive information without a secure authentication service and database.
