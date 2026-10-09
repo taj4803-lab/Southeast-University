@@ -32,10 +32,10 @@
       </div>
     </div>
     <div class="ledger-summary">
-      <label class="ledger-semester"><span>Select a semester</span><select id="semester-select"><option value="summer">Summer 2026</option><option value="spring">Spring 2026</option><option value="fall">Fall 2025</option></select></label>
+      <div class="ledger-metric ledger-semester"><span>Semester</span><strong>Fall 2026</strong></div>
       <div class="ledger-metric"><span>Outstanding Amount</span><strong id="outstanding">৳ 1,500.00</strong></div>
-      <div class="ledger-metric"><span>Semester Paid</span><strong id="semester-paid">92%</strong></div>
-      <div class="ledger-metric"><span>Total Paid</span><strong id="total-paid">88%</strong></div>
+      <div class="ledger-metric"><span>Payable Amount</span><strong id="semester-paid">৳ 26,500</strong></div>
+      <div class="ledger-metric"><span>Total Due</span><strong id="total-paid">৳ 66,500</strong></div>
     </div>
     <div class="ledger-table-wrap">
       <table class="ledger-table">
@@ -52,31 +52,6 @@
   </section>
 </main>
 <footer class="footer"><a class="brand brand-footer" href="index.html"><span class="brand-mark">SU</span><span>Southeast University<small>Education Today, Leadership Tomorrow</small></span></a><p>Student website demo · Not an official student financial system.</p><div><a href="about.html">About</a><a href="contact.html">Contact</a><a href="login.html">Student login</a></div><small>© <span id="year"></span> Southeast University demo</small></footer>
-<script>
-const demoLedger = {
-  summer: { outstanding: "৳ 1,500.00", semester: "92%", total: "88%", rows: [
-    ["Summer 2026","15 Jun 2026","Tuition Fee","Sample semester tuition","৳ 30,000","৳ 28,500"],
-    ["Summer 2026","20 Jun 2026","Payment","Sample payment record","—","৳ 28,500"],
-    ["Summer 2026","—","Balance","Illustrative balance only","৳ 1,500","—"]
-  ]},
-  spring: { outstanding: "৳ 0.00", semester: "100%", total: "86%", rows: [
-    ["Spring 2026","10 Feb 2026","Tuition Fee","Sample semester tuition","৳ 28,000","৳ 28,000"],
-    ["Spring 2026","15 Feb 2026","Payment","Sample payment record","—","৳ 28,000"],
-    ["Spring 2026","—","Balance","Illustrative balance only","৳ 0","—"]
-  ]},
-  fall: { outstanding: "৳ 2,000.00", semester: "90%", total: "82%", rows: [
-    ["Fall 2025","12 Oct 2025","Tuition Fee","Sample semester tuition","৳ 25,000","৳ 23,000"],
-    ["Fall 2025","18 Oct 2025","Payment","Sample payment record","—","৳ 23,000"],
-    ["Fall 2025","—","Balance","Illustrative balance only","৳ 2,000","—"]
-  ]}
-};
-document.getElementById("semester-select").addEventListener("change", function() {
-  const d = demoLedger[this.value];
-  document.getElementById("outstanding").textContent = d.outstanding;
-  document.getElementById("semester-paid").textContent = d.semester;
-  document.getElementById("total-paid").textContent = d.total;
-  document.getElementById("ledger-rows").innerHTML = d.rows.map(row => "<tr>" + row.map(cell => "<td>" + cell + "</td>").join("") + "</tr>").join("");
-});
-</script>
+
 </body>
 </html>
