@@ -120,3 +120,89 @@ footer a:hover { color: white; }
   .cta { padding: 26px; flex-direction: column; align-items: flex-start; }
   .footer-bottom { flex-direction: column; }
 }
+
+
+/* Header navigation refinement and Student Ledger demo page */
+.site-header { display:flex; align-items:center; gap:24px; padding:12px max(22px, calc((100% - 1200px)/2)); }
+.site-header .nav { display:flex; align-items:center; justify-content:center; flex:1; gap:clamp(10px, 1.4vw, 22px); }
+.site-header .nav a { white-space:nowrap; color:#4c5e73; font-size:13px; font-weight:700; }
+.site-header .nav a:hover, .site-header .nav a.active { color:var(--blue); }
+.header-actions { display:flex; align-items:center; gap:12px; white-space:nowrap; }
+.login-link { font-size:13px; font-weight:700; }
+.button, .button-small { display:inline-flex; align-items:center; justify-content:center; border-radius:11px; padding:11px 16px; background:linear-gradient(135deg,var(--blue),#12538d); color:#fff; font-weight:700; font-size:13px; }
+.button-small { padding:9px 13px; }
+.site-header .menu-toggle { flex-shrink:0; }
+.ledger-page { min-height:70vh; background:#eef3f9; padding-bottom:60px; }
+.ledger-top { background:linear-gradient(120deg,#0a1c34,#163f68); color:white; padding:42px 0 64px; }
+.ledger-top-inner { display:flex; justify-content:space-between; align-items:center; gap:20px; }
+.ledger-kicker, .demo-label { font-size:10px; letter-spacing:1.7px; font-weight:800; color:#f2b544; }
+.ledger-top h1 { color:white; font:800 clamp(32px,4vw,46px)/1.15 Manrope,sans-serif; margin:8px 0; }
+.ledger-top p { color:#c5d4e5; margin:0; }
+.ledger-avatar,.profile-avatar { display:grid; place-items:center; border-radius:50%; font-weight:800; color:white; background:linear-gradient(135deg,#159b9a,#1768ac); border:3px solid #b8f3e9; }
+.ledger-avatar { width:62px; height:62px; font-size:22px; }
+.ledger-container { margin-top:-32px; position:relative; }
+.ledger-profile { display:flex; justify-content:space-between; gap:24px; padding:28px; background:#1c2b42; color:white; border-radius:20px 20px 0 0; }
+.ledger-person { display:flex; align-items:center; gap:18px; }
+.profile-avatar { width:78px; height:78px; flex-shrink:0; font-size:24px; }
+.ledger-person h2 { color:white; font-size:20px; margin:5px 0; letter-spacing:0; }
+.ledger-person p { margin:2px 0; color:#d5dfeb; font-size:13px; }
+.ledger-dates { min-width:260px; display:grid; align-content:center; gap:7px; }
+.ledger-dates div { display:flex; justify-content:space-between; gap:15px; font-size:12px; }
+.ledger-dates span { color:#b8c8d9; }
+.ledger-dates strong { color:#fff; text-align:right; }
+.ledger-summary { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; padding:22px 28px; background:#1c2b42; }
+.ledger-semester,.ledger-metric { display:flex; flex-direction:column; overflow:hidden; border:2px solid #b8f3e9; border-radius:16px; background:#1c2b42; color:white; }
+.ledger-semester span,.ledger-metric span { display:block; text-align:center; padding:8px 10px; background:#0d9488; color:white; font-size:12px; font-weight:800; }
+.ledger-semester select { flex:1; border:0; border-radius:0; background:#1c2b42; color:white; font-weight:700; padding:11px; }
+.ledger-metric strong { display:grid; flex:1; place-items:center; min-height:48px; font-size:16px; }
+.ledger-table-wrap { overflow-x:auto; background:#1c2b42; padding:0 28px 28px; border-radius:0 0 20px 20px; }
+.ledger-table { width:100%; border-collapse:collapse; min-width:700px; color:#f2f6fb; font-size:12px; }
+.ledger-table th,.ledger-table td { padding:15px 12px; border:1px solid #3a4960; text-align:left; }
+.ledger-table th { background:#24364f; color:white; }
+.ledger-table tbody tr:nth-child(even) { background:#22334b; }
+.ledger-disclaimer { margin:18px 0; padding:14px 16px; background:#fff7e6; border:1px solid #f1d89d; border-radius:12px; color:#6e531b; font-size:12px; }
+.ledger-actions { display:flex; flex-wrap:wrap; gap:12px; }
+@media(max-width:1000px) {
+  .site-header { flex-wrap:wrap; gap:12px; padding:12px 20px; }
+  .site-header .nav { order:4; width:100%; flex-wrap:wrap; justify-content:flex-start; }
+  .header-actions { margin-left:auto; }
+}
+@media(max-width:700px) {
+  .site-header .nav { display:none; flex-direction:column; align-items:stretch; gap:8px; }
+  .site-header .nav.open { display:flex; }
+  .ledger-profile { flex-direction:column; }
+  .ledger-dates { min-width:0; }
+  .ledger-summary { grid-template-columns:1fr 1fr; padding:16px; }
+  .ledger-table-wrap { padding:0 16px 20px; }
+  .ledger-profile { padding:20px; }
+}
+@media print {
+  .site-header,.ledger-actions,.footer { display:none!important; }
+  .ledger-page { background:white; }
+  .ledger-container { width:100%; margin:0; }
+}
+
+/* Student photo and profile layout update */
+.student-photo { object-fit: cover; display:block; }
+.ledger-profile { justify-content:flex-start; }
+.ledger-person { min-width:0; }
+@media(max-width:700px) {
+  .student-photo { width:78px; height:78px; }
+  .ledger-person { align-items:flex-start; }
+}
+
+
+/* Final Student Ledger profile layout and responsive portrait fix */
+.ledger-profile { display:flex; align-items:center; justify-content:flex-start; gap:24px; min-width:0; }
+.ledger-person { display:flex; align-items:center; gap:22px; min-width:0; width:100%; }
+.ledger-person > div { min-width:0; }
+.ledger-person h2 { font-size:clamp(17px, 2.2vw, 24px); line-height:1.3; overflow-wrap:anywhere; }
+.ledger-person p { overflow-wrap:anywhere; }
+.profile-avatar.student-photo { width:150px; height:150px; flex:0 0 150px; border-radius:50%; object-fit:cover; object-position:center 35%; border:4px solid #159b9a; background:#f5e8eb; }
+@media (max-width:700px) {
+  .ledger-profile { padding:20px 16px; }
+  .ledger-person { flex-direction:column; align-items:center; text-align:center; gap:16px; }
+  .profile-avatar.student-photo { width:clamp(112px, 38vw, 150px); height:clamp(112px, 38vw, 150px); flex-basis:auto; }
+  .ledger-person h2 { font-size:clamp(17px, 5vw, 22px); }
+  .ledger-person p { font-size:13px; }
+}
