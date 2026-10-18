@@ -15,7 +15,7 @@
   <nav class="nav">
     <a href="index.html">Home</a><a href="about.html">About</a><a href="academics.html">Academics</a><a class="active" href="student-ledger.html">Student Ledger</a><a href="campus-life.html">Campus Life</a><a href="contact.html">Contact</a>
   </nav>
-  <div class="header-actions"><a class="login-link" href="login.html">Log in</a><a class="button button-small" href="signup.html">Sign up</a></div>
+  
 </header>
 <main class="ledger-page">
   <section class="ledger-top">
@@ -33,9 +33,9 @@
     </div>
     <div class="ledger-summary">
       <div class="ledger-metric ledger-semester"><span>Semester</span><strong>Fall 2026</strong></div>
-      <div class="ledger-metric"><span>Outstanding Amount</span><strong id="outstanding">৳ 1,500.00</strong></div>
-      <div class="ledger-metric"><span>Payable Amount</span><strong id="semester-paid">৳ 26,500</strong></div>
-      <div class="ledger-metric"><span>Total Due</span><strong id="total-paid">৳ 66,500</strong></div>
+      <div class="ledger-metric"><span>Total Paid</span><strong id="outstanding">৳ 1,500.00</strong></div>
+      <div class="ledger-metric"><span>Payable Amount</span><strong id="semester-paid" class="negative-amount">৳ -26,000</strong></div>
+      <div class="ledger-metric"><span>Total Due</span><strong id="total-paid" class="negative-amount">৳ -66,500</strong></div>
     </div>
     <div class="ledger-table-wrap">
       <table class="ledger-table">
@@ -45,11 +45,10 @@
         </tbody>
       </table>
     </div>
-    <p class="ledger-disclaimer"><strong>Demo only:</strong> This is a visual sample and is not connected to SEU's official UMS or payment records.</p>
-    <div class="ledger-actions"><button class="btn btn-primary" onclick="window.print()">Print this page</button><a class="btn btn-secondary" href="academics.html">Back to Academics</a></div>
+<div class="ledger-actions"><button class="btn btn-primary" onclick="window.print()">Print this page</button><a class="btn btn-secondary" href="academics.html">Back to Academics</a></div>
   </section>
 </main>
-<footer class="footer"><a class="brand brand-footer" href="index.html"><span class="brand-mark">SU</span><span>Southeast University<small>Education Today, Leadership Tomorrow</small></span></a><p>Student website demo · Not an official student financial system.</p><div><a href="about.html">About</a><a href="contact.html">Contact</a><a href="login.html">Student login</a></div><small>© <span id="year"></span> Southeast University demo</small></footer>
+<footer class="footer"><a class="brand brand-footer" href="index.html"><span class="brand-mark">SU</span><span>Southeast University<small>Education Today, Leadership Tomorrow</small></span></a><p>Student website demo · Not an official student financial system.</p><div><a href="about.html">About</a><a href="contact.html">Contact</a></div><small>© <span id="year"></span> Southeast University demo</small></footer>
 
 </body>
 </html>
